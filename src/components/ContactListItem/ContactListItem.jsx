@@ -10,7 +10,7 @@ const ContactListItem = ({ id, name, number, onDelete }) => {
   return (
     <ContactsItem key={id}>
       <ContactName>{name}:</ContactName> <ContactNumber>{number}</ContactNumber>
-      <DeleteButton onClick={() => onDelete(id)}>Remove</DeleteButton>
+      <DeleteButton onClick={() => onDelete(id)}>Delete</DeleteButton>
     </ContactsItem>
   );
 };
