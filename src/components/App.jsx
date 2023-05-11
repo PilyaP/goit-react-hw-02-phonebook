@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-
+import { Notify } from 'notiflix';
 import { nanoid } from 'nanoid';
 import { Container } from './App.styled';
 import ContactForm from './ContactForm/ContactForm';
@@ -29,7 +29,7 @@ class App extends Component {
         i.name.toLowerCase() === contact.name.toLowerCase() ||
         i.number === contact.number
     )
-      ? alert(`${name} is already in contacts`)
+      ? Notify.failure(`${name} is already in phonebook.`)
       : this.setState(({ contacts }) => ({
           contacts: [contact, ...contacts],
         }));
@@ -47,9 +47,13 @@ class App extends Component {
   };
 
   deleteContact = id => {
+    const contactName = this.state.contacts.find(
+      contact => contact.id === id
+    ).name;
     this.setState(prevState => ({
       contacts: prevState.contacts.filter(contact => contact.id !== id),
     }));
+    Notify.warning(`${contactName} delete from phonebook.`);
   };
 
   render() {
