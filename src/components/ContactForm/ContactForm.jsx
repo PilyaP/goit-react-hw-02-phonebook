@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
 import { StyledForm } from './ContactForm.styled';
 import PropTypes from 'prop-types';
-import { nanoid } from 'nanoid';
 
-export default class ContactForm extends Component {
-  state = { name: '', number: '' };
 
-  inputNameId = nanoid();
-  inputPhoneId = nanoid();
+class ContactForm extends Component {
+  state = {
+    name: '',
+    number: '',
+  };
 
   handleChange = event => {
     const { name, value } = event.currentTarget;
@@ -16,25 +16,17 @@ export default class ContactForm extends Component {
 
   handleSubmit = event => {
     event.preventDefault();
-
-    const newContact = {
-      id: nanoid(),
-      name: this.state.name,
-      number: this.state.number,
-    };
-
-    this.props.onSubmit(newContact);
-    this.reset();
-  };
-
-  reset = () => {
-    this.setState({ name: '', number: '' });
+    this.props.onSubmit(this.state);
+    this.setState({
+      name: '',
+      number: '',
+    });
   };
   render() {
     return (
       <StyledForm onSubmit={this.handleSubmit}>
         <h1 className="form-title">{this.props.title}</h1>
-        <label htmlFor={this.inputNameId} className="form-label">
+        <label htmlFor="" className="form-label">
           <span className="form-span">Name:</span>
           <input
             className="form-input"
@@ -47,7 +39,7 @@ export default class ContactForm extends Component {
             onChange={this.handleChange}
           />
         </label>
-        <label htmlFor={this.inputNameId} className="form-label">
+        <label htmlFor="" className="form-label">
           <span className="form-span">Number:</span>
           <input
             className="form-input"
@@ -60,7 +52,7 @@ export default class ContactForm extends Component {
             onChange={this.handleChange}
           />
         </label>
-        <button type="submit" onClick={this.handle} className="form-btn">
+        <button type="submit" className="form-btn">
           Add Contact
         </button>
       </StyledForm>
@@ -70,3 +62,4 @@ export default class ContactForm extends Component {
 ContactForm.propTypes = {
   onSubmit: PropTypes.func.isRequired,
 };
+export default ContactForm;

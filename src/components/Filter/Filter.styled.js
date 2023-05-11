@@ -1,6 +1,6 @@
 import styled from '@emotion/styled';
 
-export const FormFilter = styled.form`
+export const FilterItem = styled.form`
   .filter-label {
     font-size: 16px;
     display: flex;
@@ -12,7 +12,7 @@ export const FormFilter = styled.form`
     border-radius: 4px;
     border: none;
     box-shadow: 0 3px 5px rgba(0, 0, 0, 0.2);
-    width: 120px;
+    width: 170px;
     height: 25px;
 
     padding: 0 15px;

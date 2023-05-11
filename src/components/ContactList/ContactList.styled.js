@@ -1,10 +1,27 @@
 import styled from '@emotion/styled';
 
-export const Container = styled.div`
-  max-width: 400px;
-  margin: 0 auto;
-  padding: 20px;
-  background-color: #f1f1f1;
+export const ContactsItem = styled.li`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  margin-bottom: 10px;
+  background-color: #fff;
+  box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.2);
   border-radius: 5px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  .contact-name {
+    font-weight: 700;
+    margin-right: 10px;
+    font-size: 14px;
+    color: #666;
+  }
+  .bnt-name {
+    width: 70px;
+    border: none;
+    cursor: pointer;
+    border-radius: 10px;
+    &:hover {
+      background-color: #3367d6;
+    }
+  }
 `;
